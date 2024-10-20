@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página Principal - Bienestar Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f2f1;
+        }
+
+        header {
+            background-color: #004d40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #00796b;
+            font-weight: 400;
+            font-size: 1.5rem;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 50px;
+            padding: 0 20px;
+        }
+
+        .feature {
+            text-align: center;
+            margin: 20px;
+        }
+
+        .feature img {
+            width: 250px;
+            height: 150px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature img:hover {
+            transform: scale(1.05);
+        }
+
+        .feature h3 {
+            margin-top: 15px;
+            font-weight: 600;
+            font-size: 1.3rem;
+            color: #00796b;
+        }
+
+        footer {
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            margin-top: 50px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+
+            .feature img {
+                width: 100%;
+                max-width: 300px;
+                height: auto;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .feature img {
+                width: 100%;
+                max-width: 250px;
+                height: auto;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.1rem;
+            }
+
+            .feature h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Bienestar Digital</h1>
+    </header>
+
+    <section id="navegacion">
+        <h2>Elige una opción para mejorar tu bienestar digital</h2>
+        <div class="container">
+            <div class="feature">
+                <a href="monitoreo.html">
+                    <img src="https://telecomstore.pe/wp-content/uploads/2023/11/app-monitoreo.jpg" alt="Monitoreo en tiempo real">
+                </a>
+                <h3>Monitoreo en tiempo real</h3>
+            </div>
+            
+            <div class="feature">
+                <a href="alertas.html">
+                    <img src="https://luzclinic.es/wp-content/uploads/2021/12/afecta-aparatos-tecnologicos-vista.jpg" alt="Alertas de uso excesivo">
+                </a>
+                <h3>Alertas de uso excesivo</h3>
+            </div>
+
+            <div class="feature">
+                <a href="rutinas.html">
+                    <img src="https://gacetamedica.com/wp-content/uploads/2021/12/GettyImages-1311322860.jpg" alt="Rutinas de desconexión">
+                </a>
+                <h3>Rutinas de desconexión</h3>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Bienestar Digital</p>
+        <div style="display: flex; justify-content: center; gap: 10px; margin-top: 10px;">
+            <div style="border: 1px solid #b2dfdb; padding: 5px 10px; border-radius: 5px; font-size: 0.9rem; color: #b2dfdb; font-weight: 300;">
+                Anderson Ninahuaman Yuto
+            </div>
+            <div style="border: 1px solid #b2dfdb; padding: 5px 10px; border-radius: 5px; font-size: 0.9rem; color: #b2dfdb; font-weight: 300;">
+                Jheremy Delgado Gomez
+            </div>
+            <div style="border: 1px solid #b2dfdb; padding: 5px 10px; border-radius: 5px; font-size: 0.9rem; color: #b2dfdb; font-weight: 300;">
+                Diego Cahuari Tintaya
+            </div>
+        </div>
+    </footer>
+    
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rutinas de Desconexión</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f2f1;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            margin: 0;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 1000px;
+            margin: auto;
+            margin-top: 30px;
+            padding: 0 10px;
+        }
+
+        .app-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .app-box:hover {
+            background-color: #e0e0e0;
+        }
+
+        .time-options {
+            margin-top: 20px;
+            display: none;
+            text-align: center;
+        }
+
+        .time-box {
+            padding: 10px;
+            background-color: #00796b;
+            color: white;
+            border-radius: 5px;
+            margin: 5px;
+            display: inline-block;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .time-box:hover {
+            background-color: #004d40;
+        }
+
+        #cronometro {
+            margin-top: 20px;
+            font-size: 1.5rem;
+            text-align: center;
+            display: none;
+        }
+
+        footer {
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 50px;
+            width: 100%;
+        }
+
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: repeat(3, 1fr); 
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: repeat(2, 1fr); 
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                grid-template-columns: 1fr; 
+            }
+
+            .app-box {
+                padding: 15px;
+            }
+
+            #cronometro {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rutinas de Desconexión</h1>
+        <nav>
+            <a href="index.html">Volver al inicio</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Selecciona una aplicación para configurar el tiempo de uso</h2>
+        <div class="container">
+            <div class="app-box" onclick="showTimeOptions('tiktok')">TikTok</div>
+            <div class="app-box" onclick="showTimeOptions('instagram')">Instagram</div>
+            <div class="app-box" onclick="showTimeOptions('facebook')">Facebook</div>
+            <div class="app-box" onclick="showTimeOptions('youtube')">YouTube</div>
+            <div class="app-box" onclick="showTimeOptions('netflix')">Netflix</div>
+            <div class="app-box" onclick="showTimeOptions('whatsapp')">WhatsApp</div>
+            <div class="app-box" onclick="showTimeOptions('twitter')">Twitter</div>
+            <div class="app-box" onclick="showTimeOptions('steam')">Steam</div>
+        </div>
+
+        <div id="tiktok" class="time-options">
+            <h3>Tiempo de uso para TikTok</h3>
+            <div class="time-box" onclick="iniciarCronometro(60)">1 hora</div>
+            <div class="time-box" onclick="iniciarCronometro(120)">2 horas</div>
+            <div class="time-box" onclick="iniciarCronometro(180)">3 horas</div>
+        </div>
+        <div id="instagram" class="time-options">
+            <h3>Tiempo de uso para Instagram</h3>
+            <div class="time-box" onclick="iniciarCronometro(60)">1 hora</div>
+            <div class="time-box" onclick="iniciarCronometro(120)">2 horas</div>
+            <div class="time-box" onclick="iniciarCronometro(180)">3 horas</div>
+        </div>
+        <div id="facebook" class="time-options">
+            <h3>Tiempo de uso para Facebook</h3>
+            <div class="time-box" onclick="iniciarCronometro(60)">1 hora</div>
+            <div class="time-box" onclick="iniciarCronometro(120)">2 horas</div>
+            <div class="time-box" onclick="iniciarCronometro(180)">3 horas</div>
+        </div>
+        <div id="youtube" class="time-options">
+            <h3>Tiempo de uso para YouTube</h3>
+            <div class="time-box" onclick="iniciarCronometro(60)">1 hora</div>
+            <div class="time-box" onclick="iniciarCronometro(120)">2 horas</div>
+            <div class="time-box" onclick="iniciarCronometro(180)">3 horas</div>
+        </div>
+        <div id="netflix" class="time-options">
+            <h3>Tiempo de uso para Netflix</h3>
+            <div class="time-box" onclick="iniciarCronometro(60)">1 hora</div>
+            <div class="time-box" onclick="iniciarCronometro(120)">2 horas</div>
+            <div class="time-box" onclick="iniciarCronometro(180)">3 horas</div>
+        </div>
+        <div id="whatsapp" class="time-options">
+            <h3>Tiempo de uso para WhatsApp</h3>
+            <div class="time-box" onclick="iniciarCronometro(60)">1 hora</div>
+            <div class="time-box" onclick="iniciarCronometro(120)">2 horas</div>
+            <div class="time-box" onclick="iniciarCronometro(180)">3 horas</div>
+        </div>
+        <div id="twitter" class="time-options">
+            <h3>Tiempo de uso para Twitter</h3>
+            <div class="time-box" onclick="iniciarCronometro(60)">1 hora</div>
+            <div class="time-box" onclick="iniciarCronometro(120)">2 horas</div>
+            <div class="time-box" onclick="iniciarCronometro(180)">3 horas</div>
+        </div>
+        <div id="steam" class="time-options">
+            <h3>Tiempo de uso para Steam</h3>
+            <div class="time-box" onclick="iniciarCronometro(60)">1 hora</div>
+            <div class="time-box" onclick="iniciarCronometro(120)">2 horas</div>
+            <div class="time-box" onclick="iniciarCronometro(180)">3 horas</div>
+        </div>
+
+        <div id="cronometro">
+            <h3>Tiempo Restante</h3>
+            <p id="tiempo-restante">00:00:00</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Bienestar Digital</p>
+    </footer>
+
+    <script>
+        let intervalo;
+        let tiempoRestante;
+
+        function showTimeOptions(appId) {
+            let timeOptions = document.querySelectorAll('.time-options');
+            timeOptions.forEach(function(option) {
+                option.style.display = 'none';
+            });
+
+            let selectedApp = document.getElementById(appId);
+            if (selectedApp) {
+                selectedApp.style.display = 'block';
+            }
+        }
+
+        function iniciarCronometro(minutos) {
+            clearInterval(intervalo); 
+            tiempoRestante = minutos * 60; 
+
+            document.getElementById('cronometro').style.display = 'block';
+
+            intervalo = setInterval(function() {
+                let horas = Math.floor(tiempoRestante / 3600);
+                let minutosRestantes = Math.floor((tiempoRestante % 3600) / 60);
+                let segundosRestantes = tiempoRestante % 60;
+
+                document.getElementById('tiempo-restante').textContent =
+                    `${horas.toString().padStart(2, '0')}:${minutosRestantes.toString().padStart(2, '0')}:${segundosRestantes.toString().padStart(2, '0')}`;
+
+                if (tiempoRestante <= 300) {
+                    document.getElementById('tiempo-restante').style.color = 'red';
+                } else {
+                    document.getElementById('tiempo-restante').style.color = 'black';
+                }
+
+                tiempoRestante--;
+
+                if (tiempoRestante < 0) {
+                    clearInterval(intervalo);
+                    alert('¡Tu tiempo de uso ha terminado!');
+
+                    let audio = new Audio('alerta.mp3');
+                    audio.play();
+                }
+            }, 1000);
+        }
+    </script>
+</body>
+</html>
