@@ -2,7 +2,7 @@ body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e0f7fa;
+    background-color: #f1fdff;
     color: #333;
 }
 
@@ -33,10 +33,23 @@ nav ul li {
 }
 
 nav ul li a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #127262;
     color: white;
     text-decoration: none;
-    font-size: 1.1rem;
-    transition: color 0.3s ease;
+    font-size: 1rem;
+    font-weight: bold; /* Añade negrita al texto */
+    border-radius: 25px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #00796b;
+    transform: scale(1.05);
 }
 
 nav ul li a:hover {
@@ -63,7 +76,7 @@ nav ul li a:hover {
 }
 
 #intro button {
-    background-color: #004d40;
+    background-color: #106658;
     color: white;
     border: none;
     padding: 15px 30px;
@@ -71,6 +84,8 @@ nav ul li a:hover {
     cursor: pointer;
     border-radius: 25px;
     transition: background-color 0.3s ease;
+    box-shadow: 0px 4px 6px rgba(255, 255, 255, 0.2);
+    font-weight: bold;
 }
 
 #intro button:hover {
@@ -127,13 +142,14 @@ button:hover {
 }
 
 footer {
-    background-color: #004d40;
+    background-color: s;
     color: white;
     padding: 15px 0;
     text-align: center;
     position: relative;
     bottom: 0;
     width: 100%;
+    border-radius: 10px;
 }
 
 footer p {

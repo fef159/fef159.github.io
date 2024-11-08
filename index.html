@@ -5,152 +5,502 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Principal - Bienestar Digital</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         body {
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e0f2f1;
+            background-color: #f6fffe;
         }
 
         header {
-            background-color: #004d40;
+            background: linear-gradient(to right, #004d40, #01a393, #004d40 );
             color: white;
             padding: 20px;
             text-align: center;
+            position: relative;
         }
+
+        nav {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        
+        nav a {
+    position: relative;
+    display: inline-block;
+    margin: 0 5px;
+    color: rgb(247, 247, 247);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: white;
+    color: #009688;
+}
+
 
         h1 {
             margin: 0;
         }
 
-        section {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        h2 {
-            color: #00796b;
-            font-weight: 400;
-            font-size: 1.5rem;
-        }
-
-        .container {
+        .content {
             display: flex;
-            justify-content: space-around;
             align-items: center;
-            flex-wrap: wrap;
-            margin-top: 50px;
-            padding: 0 20px;
+            justify-content: center;
+            padding: 40px;
+            gap: 20px;
         }
 
-        .feature {
-            text-align: center;
-            margin: 20px;
+        .text-content {
+            flex: 1;
+            max-width: 50%;
+            padding: 20px;
         }
 
-        .feature img {
-            width: 250px;
-            height: 150px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
+        .text-content h2 {
+            color: #000000;
+            font-weight: 700;
+            font-size: 1.0rem;
+            margin: 0;
         }
 
-        .feature img:hover {
-            transform: scale(1.05);
+        .text-content h3 {
+            font-weight: 900;
+            font-size: 2.5rem;
+            color: #000;
+            margin-top: 10px;
+            font-family: 'Poppins', sans-serif;
         }
 
-        .feature h3 {
-            margin-top: 15px;
-            font-weight: 600;
-            font-size: 1.3rem;
-            color: #00796b;
+        .text-content h3 {
+    font-weight: 900; /* Asegura el máximo grosor */
+    font-size: 3rem; /* Ajusta el tamaño al de la imagen */
+    color: #000; /* Color negro puro */
+    margin-top: 10px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: -0.5px; /* Ajuste de espaciado entre letras para más densidad */
+    line-height: 1.1; /* Ajusta el espaciado entre líneas */
+}
+
+
+        .carousel-container {
+            flex: 1;
+            max-width: 50%;
+            position: relative;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+            border-radius: 30px;
         }
 
+        .carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+            border-radius: 30px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+            border-radius: 30px;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            transition: opacity 0.5s ease;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+            border-radius: 30px;
+        }
+
+        .carousel-item img {
+            width: 132%;
+            height: auto;
+            border-radius: 30px;
+            object-fit: cover;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);
+            border-radius: 30px;
+        }
+
+        /* Carousel navigation buttons */
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: rgb(255, 255, 255);
+            border: none;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            border-radius: 60%;
+            z-index: 10;
+            width: 46px;
+        }
+
+        .carousel-button.prev {
+            left: 10px;
+        }
+
+        .carousel-button.next {
+            right: 10px;
+        }
+
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Footer styling */
         footer {
             background-color: #004d40;
             color: white;
             text-align: center;
-            padding: 10px 0;
+            padding: 20px 0;
             margin-top: 50px;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            font-size: 0.9rem;
         }
 
+        footer p {
+            margin: 5px 0;
+        }
+
+        footer a {
+            color: #80cbc4;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .container {
+            .content {
                 flex-direction: column;
+                padding: 20px;
             }
 
-            .feature img {
-                width: 100%;
-                max-width: 300px;
-                height: auto;
-            }
-
-            h2 {
-                font-size: 1.2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .feature img {
-                width: 100%;
-                max-width: 250px;
-                height: auto;
-            }
-
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            h2 {
-                font-size: 1.1rem;
-            }
-
-            .feature h3 {
-                font-size: 1.2rem;
+            .text-content, .carousel-container {
+                max-width: 100%;
             }
         }
     </style>
 </head>
+<style>
+    body {
+        font-family: 'Poppins', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f5f5f5;
+    }
+
+    footer {
+        background-color: #e0f2f1;
+        padding: 40px 20px;
+        color: #333;
+        font-size: 0.9rem;
+    }
+
+    /* Redes Sociales */
+    .social-media {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-bottom: 20px;
+    }
+
+    .social-media a {
+        color: #333;
+        font-size: 1.2rem;
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+
+    .social-media a:hover {
+        color: #009688;
+        text-decoration: none;
+    }
+
+    /* Contenedor de columnas */
+    .footer-columns {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+        max-width: 1200px;
+        margin: 0 auto;
+        text-align: left;
+    }
+
+    /* Títulos de las secciones */
+    .footer-columns h3 {
+        font-weight: 600;
+        margin-bottom: 10px;
+        color: #000;
+    }
+
+    /* Enlaces del footer */
+    .footer-columns ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .footer-columns ul li {
+        margin-bottom: 5px;
+    }
+
+    .footer-columns ul li a {
+        text-decoration: none;
+        color: #333;
+        transition: color 0.3s ease;
+    }
+
+    .footer-columns ul li a:hover {
+        color: #009688;
+    }
+
+    /* Línea divisoria */
+    .footer-divider {
+        width: 100%;
+        height: 1px;
+        background-color: #ddd;
+        margin: 20px 0;
+    }
+
+    /* Estilo de derechos reservados */
+    .footer-bottom {
+        text-align: center;
+        font-size: 0.8rem;
+        color: #777;
+        margin-top: 20px;
+    }
+
+    /* Ajuste responsivo */
+    @media (max-width: 768px) {
+        .footer-columns {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @media (max-width: 480px) {
+        .footer-columns {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.social-media a {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #009688;
+    color: white;
+    font-size: 1.5rem;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    background-color: hsl(0, 0%, 100%);
+    transform: scale(1.1);
+}
+</style>
+</head>
+
 <body>
     <header>
         <h1>Bienestar Digital</h1>
+        <nav>
+            <a href="suscripciones.html">Suscripciones</a>
+            <a href="login.html">Iniciar Sesión</a>
+        </nav>
     </header>
 
-    <section id="navegacion">
-        <h2>Elige una opción para mejorar tu bienestar digital</h2>
-        <div class="container">
-            <div class="feature">
-                <a href="monitoreo.html">
-                    <img src="https://telecomstore.pe/wp-content/uploads/2023/11/app-monitoreo.jpg" alt="Monitoreo en tiempo real">
-                </a>
-                <h3>Monitoreo en tiempo real</h3>
-            </div>
-            
-            <div class="feature">
-                <a href="alertas.html">
-                    <img src="https://luzclinic.es/wp-content/uploads/2021/12/afecta-aparatos-tecnologicos-vista.jpg" alt="Alertas de uso excesivo">
-                </a>
-                <h3>Alertas de uso excesivo</h3>
-            </div>
-
-            <div class="feature">
-                <a href="rutinas.html">
-                    <img src="https://gacetamedica.com/wp-content/uploads/2021/12/GettyImages-1311322860.jpg" alt="Rutinas de desconexión">
-                </a>
-                <h3>Rutinas de desconexión</h3>
+    <div class="content">
+        <div class="text-content">
+            <h2>Mayor equilibrio para ti y tu familia</h2>
+            <h3 id="carousel-title"></h3>
+        </div>
+    
+        <div class="carousel-container">
+            <div class="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item">
+                        <a href="monitoreo.html" target="_blank">
+                            <img src="https://telecomstore.pe/wp-content/uploads/2023/11/app-monitoreo.jpg" alt="Monitoreo en tiempo real">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="alertas.html" target="_blank">
+                            <img src="https://luzclinic.es/wp-content/uploads/2021/12/afecta-aparatos-tecnologicos-vista.jpg" alt="Alertas de uso excesivo">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="rutinas.html" target="_blank">
+                            <img src="https://gacetamedica.com/wp-content/uploads/2021/12/GettyImages-1311322860.jpg" alt="Rutinas de desconexión">
+                        </a>
+                    </div>
+                    <div class="carousel-item">
+                        <a href="asistentevirtual.html" target="_blank">
+                            <img src="https://www.revistasaluddigital.com/rsd-backend/public/backend/images/assets/6333669328a06402099962.jpg?1" alt="Alertas de uso excesivo">
+                        </a>
+                    </div>
+                </div>
+                <button class="carousel-button prev" onclick="prevSlide()">&#10094;</button>
+                <button class="carousel-button next" onclick="nextSlide()">&#10095;</button>
             </div>
         </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2024 Bienestar Digital</p>
-  </footer>
+    </div>
     
+    <footer>
+        <!-- Redes Sociales -->
+        <div class="social-media">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+    
+        <!-- Línea divisoria -->
+        <div class="footer-divider"></div>
+    
+        <!-- Secciones del Footer -->
+        <div class="footer-columns">
+            <!-- Columna 1 -->
+            <div>
+                <h3>Privacidad y seguridad</h3>
+                <ul>
+                    <li><a href="#">Seguridad</a></li>
+                    <li><a href="#">Privacidad</a></li>
+                    <li><a href="#">Seguridad física</a></li>
+                    <li><a href="#">Encontrar mi dispositivo</a></li>
+                </ul>
+            </div>
+    
+            <!-- Columna 2 -->
+            <div>
+                <h3>Accesibilidad</h3>
+                <ul>
+                    <li><a href="#">Funciones de visión</a></li>
+                    <li><a href="#">Funciones de audio</a></li>
+                    <li><a href="#">Funciones de movilidad</a></li>
+                </ul>
+            </div>
+    
+            <!-- Columna 3 -->
+            <div>
+                <h3>Otras funciones y servicios de Android</h3>
+                <ul>
+                    <li><a href="#">Android TV</a></li>
+                    <li><a href="#">Servicios de Google para dispositivos móviles (GMS)</a></li>
+                </ul>
+            </div>
+    
+            <!-- Columna 4 -->
+            <div>
+                <h3>Ayuda</h3>
+                <ul>
+                    <li><a href="#">Centro de Ayuda</a></li>
+                    <li><a href="#">Encontrar Mi Dispositivo</a></li>
+                    <li><a href="#">Participar en estudios de experiencia de usuario</a></li>
+                </ul>
+            </div>
+    
+            <!-- Columna 5 -->
+            <div>
+                <h3>Empresas</h3>
+                <ul>
+                    <li><a href="#">Descripción general</a></li>
+                    <li><a href="#">Buscar un socio</a></li>
+                    <li><a href="#">Dispositivos empresariales</a></li>
+                    <li><a href="#">Asistencia para empresas</a></li>
+                </ul>
+            </div>
+    
+            <!-- Columna 6 -->
+            <div>
+                <h3>Prensa</h3>
+                <ul>
+                    <li><a href="#">Blog de Android</a></li>
+                    <li><a href="#">Sección de prensa</a></li>
+                    <li><a href="#">Comunicarse con el equipo de prensa</a></li>
+                </ul>
+            </div>
+    
+            <!-- Columna 7 -->
+            <div>
+                <h3>Desarrolladores</h3>
+                <ul>
+                    <li><a href="#">Recursos para desarrolladores</a></li>
+                    <li><a href="#">Android Studio y SDK</a></li>
+                    <li><a href="#">Proyecto de código abierto de Android</a></li>
+                    <li><a href="#">Cómo funciona Google Play</a></li>
+                </ul>
+            </div>
+        </div>
+    
+        <!-- Línea divisoria -->
+        <div class="footer-divider"></div>
+    
+        <!-- Derechos Reservados -->
+        <div class="footer-bottom">
+            <p>&copy; 2024 Bienestar Digital. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const titles = [
+            "Monitoreo en tiempo real.",
+            "Alertas de uso excesivo",
+            "Rutinas de desconexión",
+            "Asistente Virtual",
+        ];
+
+        function showSlide(index) {
+            const container = document.querySelector('.carousel-inner');
+            const totalItems = document.querySelectorAll('.carousel-item').length;
+            if (index >= totalItems) {
+                currentIndex = 0;
+            } else if (index < 0) {
+                currentIndex = totalItems - 1;
+            } else {
+                currentIndex = index;
+            }
+            container.style.transform = `translateX(-${currentIndex * 100}%)`;
+            document.getElementById("carousel-title").innerText = titles[currentIndex];
+        }
+
+        function nextSlide() {
+            showSlide(currentIndex + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentIndex - 1);
+        }
+    </script>
 </body>
 </html>

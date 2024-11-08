@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <title>Asistente Virtual</title>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="index.html">Volver al inicio</a></li>
+            </ul>
+        </nav>
+        <style>
+            nav ul a {
+             margin-bottom: 720px;
+             margin-right: -540px;   
+            }
+        </style>
+    </body>
+    <style>
+        /* CSS para el diseño del chat */
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+
+        #chat-container {
+            width: 500px;
+            height: 650px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            border: 2px solid #009688;
+        }
+
+        #chat-header {
+            background-color: #009688;
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        #chat-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        #chat-messages {
+            padding: 20px;
+            height: calc(100% - 170px);
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background-color: #f3f7f7;
+        }
+
+        .message {
+            padding: 12px;
+            border-radius: 12px;
+            max-width: 80%;
+            word-wrap: break-word;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .user-message {
+            background: linear-gradient(135deg, #e1ffc7, #c8e8a9);
+            align-self: flex-end;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .bot-message {
+            background: linear-gradient(135deg, #d0f0f2, #c1e5e7);
+            align-self: flex-start;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Animación de fade-in para mensajes */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        #chat-input-container {
+            display: flex;
+            padding: 15px;
+            border-top: 1px solid #ddd;
+            background-color: #ffffff;
+        }
+
+        #chat-input {
+            flex: 1;
+            padding: 10px;
+            border-radius: 20px;
+            border: 1px solid #ddd;
+            font-size: 1rem;
+            outline: none;
+            padding-left: 15px;
+        }
+
+        #send-button {
+            background-color: #009688;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 50%;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        #send-button i {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Contenedor del Chat -->
+<div id="chat-container">
+    <div id="chat-header">
+        <img src="https://img.freepik.com/vector-gratis/robot-vectorial-graident-ai_78370-4114.jpg?w=360" alt="Asistente">
+        <span>Asistente Virtual</span>
+    </div>
+    <div id="chat-messages"></div>
+    <div id="chat-input-container">
+        <input type="text" id="chat-input" placeholder="Escribe tu mensaje aquí...">
+        <button id="send-button"><i>💬</i></button>
+    </div>
+</div>
+
+
+<script>
+    // JavaScript para controlar el Chat
+    const chatContainer = document.getElementById("chat-container");
+    const chatMessages = document.getElementById("chat-messages");
+    const chatInput = document.getElementById("chat-input");
+    const sendButton = document.getElementById("send-button");
+
+    // Función para enviar mensajes
+    sendButton.addEventListener("click", sendMessage);
+    chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") sendMessage();
+    });
+
+    // Función para manejar el envío de mensajes
+    function sendMessage() {
+        const userMessage = chatInput.value.trim();
+        if (userMessage === "") return;
+
+        // Mostrar mensaje del usuario
+        displayMessage(userMessage, "user-message");
+
+        // Generar respuesta del bot
+        const botResponse = getBotResponse(userMessage);
+        displayMessage(botResponse, "bot-message");
+
+        // Limpiar el input
+        chatInput.value = "";
+    }
+
+    // Función para mostrar mensajes en el chat
+    function displayMessage(message, className) {
+        const messageElement = document.createElement("div");
+        messageElement.className = `message ${className}`;
+        messageElement.textContent = message;
+        chatMessages.appendChild(messageElement);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    // Función para generar respuestas automáticas
+  // Función para generar respuestas automáticas con conocimientos avanzados de bienestar digital y salud mental
+function getBotResponse(message) {
+    message = message.toLowerCase();
+
+    // Respuestas específicas para bienestar digital y salud mental
+    if (message.includes("bienestar digital")) {
+        return "El bienestar digital es encontrar un equilibrio saludable con la tecnología. Esto incluye prácticas como desconectar regularmente, limitar el tiempo en redes sociales y cuidar de la salud mental."
+        ;
+    
+    } else if (message.includes("ansiedad digital")) {
+        return "La ansiedad digital puede ocurrir debido al uso excesivo de dispositivos y redes sociales. Para reducirla, limita el tiempo en pantalla, evita redes sociales justo antes de dormir y toma descansos frecuentes. Practica técnicas de respiración para aliviar el estrés en momentos de ansiedad.";
+
+    } else if (message.includes("estrés social en redes")) {
+        return "El estrés social en redes es común. Si te afecta, considera reducir el tiempo en redes y filtrar el contenido que consumes. También puedes desactivar notificaciones y recordar que lo que ves en redes no siempre representa la realidad.";
+
+    } else if (message.includes("problemas de sueño")) {
+        return "La exposición a pantallas antes de dormir afecta el sueño. Intenta evitar dispositivos al menos una hora antes de acostarte y establece una rutina de sueño. También puedes probar la 'luz nocturna' en tu dispositivo para reducir la luz azul.";
+
+    } else if (message.includes("fatiga digital")) {
+        return "La fatiga digital se produce tras pasar demasiado tiempo frente a pantallas. Para evitarla, toma descansos regulares usando la regla 20-20-20: cada 20 minutos, mira algo a 20 pies de distancia por 20 segundos.";
+
+    } else if (message.includes("desintoxicación digital") || message.includes("detox digital")) {
+        return "Una desintoxicación digital implica tomar un descanso completo de la tecnología durante un periodo determinado. Esto puede ayudarte a reducir el estrés y a reconectar con el mundo real. Intenta hacerlo durante un día o durante el fin de semana.";
+
+    } else if (message.includes("limpieza mental digital")) {
+        return "La limpieza mental digital consiste en organizar y reducir la cantidad de información que consumes. Puedes empezar por eliminar aplicaciones innecesarias, organizar tus archivos digitales y limitar el tiempo en redes sociales.";
+
+    } else if (message.includes("adicción a la tecnología")) {
+        return "La adicción a la tecnología puede tener efectos negativos en la salud mental. Establece límites diarios para el uso de dispositivos, desactiva notificaciones innecesarias y practica actividades sin tecnología, como leer o salir al aire libre.";
+
+    } else if (message.includes("mindfulness digital")) {
+        return "El mindfulness digital consiste en usar la tecnología de manera consciente. Puedes practicarlo tomando pausas frecuentes, evitando el multitasking y enfocándote en una tarea a la vez. Hay apps que pueden ayudarte a practicar mindfulness.";
+
+    } else if (message.includes("autoestima y redes sociales")) {
+        return "Compararse en redes sociales puede afectar la autoestima. Recuerda que en redes solo se muestran los mejores momentos. Desactiva notificaciones de cuentas que no te aportan valor y sigue contenido que te inspire y motive.";
+
+    } else if (message.includes("técnicas de relajación")) {
+        return "Las técnicas de relajación ayudan a reducir el estrés. Puedes probar ejercicios de respiración profunda, visualización positiva y estiramientos suaves. Practicar meditación o yoga también es efectivo para relajar la mente y el cuerpo.";
+
+    } else if (message.includes("burnout digital")) {
+        return "El burnout digital es el agotamiento mental causado por el uso excesivo de tecnología. Para combatirlo, establece límites de uso, programa pausas regulares y dedica tiempo a actividades offline que disfrutes.";
+
+    } else if (message.includes("equilibrio entre trabajo y vida personal")) {
+        return "Mantener un equilibrio entre el trabajo y la vida personal es clave para el bienestar. Define horarios claros para trabajar y descansar, desconecta fuera del horario laboral y evita revisar correos o mensajes de trabajo en tu tiempo libre.";
+
+    } else if (message.includes("ciberseguridad y privacidad")) {
+        return "La ciberseguridad es importante para proteger tu bienestar digital. Usa contraseñas seguras, activa la autenticación en dos pasos y revisa las configuraciones de privacidad en redes sociales para controlar quién puede ver tu información.";
+
+    } else if (message.includes("síndrome fomo")) {
+        return "El síndrome FOMO (Fear of Missing Out) es el miedo a perderse de algo importante en redes. Para reducirlo, define momentos específicos para revisar redes y considera desconectar en ciertos momentos del día para disfrutar el presente.";
+
+    } else if (message.includes("postura al usar dispositivos")) {
+        return "Mantener una postura adecuada reduce el riesgo de dolores físicos. Siéntate con la espalda recta, los pies apoyados y la pantalla a la altura de los ojos. Esto ayuda a evitar tensiones en el cuello y la espalda.";
+
+    } else if (message.includes("cómo establecer límites de tiempo")) {
+        return "Para establecer límites de tiempo, usa apps que monitoricen tu uso de pantalla. Establece límites diarios y horarios sin tecnología. También puedes activar el modo 'No molestar' en momentos de descanso o trabajo profundo.";
+
+    } else if (message.includes("estresores digitales")) {
+        return "Los estresores digitales incluyen notificaciones constantes, correos sin leer y presión en redes sociales. Reduce estos estresores desactivando notificaciones, limpiando tu bandeja de entrada y limitando el tiempo en redes.";
+
+    } else if (message.includes("intimidad digital")) {
+        return "La intimidad digital se refiere a proteger tu información personal y limitar la exposición en línea. Ajusta la configuración de privacidad en redes sociales, evita compartir datos sensibles y revisa tus permisos de apps.";
+
+    } else if (message.includes("hacer una pausa")) {
+        return "Hacer pausas es esencial para el bienestar. Intenta tomar un descanso de 5 a 10 minutos cada hora. Durante la pausa, levántate, estira el cuerpo, o realiza ejercicios de respiración para relajarte y recargar energía.";
+
+    } else if (message.includes("protección de la salud mental")) {
+        return "Para proteger tu salud mental en la era digital, limita el tiempo en redes sociales, establece momentos de desconexión, y participa en actividades offline que te relajen, como leer, caminar o pasar tiempo con amigos y familia.";
+
+    } else {
+        return "Soy un asistente virtual especializado en bienestar digital y salud mental. Puedes preguntarme sobre temas como estrés digital, ansiedad, adicción a la tecnología, técnicas de relajación, desconexión, y mucho más.";
+    }
+}
+
+</script>
+
+</body>
+</html>
