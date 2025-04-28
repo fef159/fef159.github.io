@@ -1,0 +1,299 @@
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    height: 40px;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: bold;
+    color: #C1A24B;
+}
+
+.nav a {
+    margin: 0 10px;
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+}
+
+.btn-inscribete {
+    background-color: #20C997;
+    border: none;
+    padding: 8px 15px;
+    color: white;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.btn-registrate {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 8px 15px;
+    border-radius: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.hero {
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-banner {
+    width: 100%;
+    object-fit: cover;
+}
+
+.cta {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f9f9f9;
+}
+
+.cta h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+#empezar-btn {
+    background-color: #20C997;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#empezar-btn:hover {
+    background-color: #1ba785;
+}
+
+.about-wrapper {
+    margin-left: 70px;
+    position: relative;
+  }
+  
+  .about-wrapper .content {
+    background-color: #fff;
+    box-shadow: 0 3px 80px rgba(173, 181, 189, 0.3), 0 0 10px rgba(173, 181, 189, 0.3) !important;
+    border-radius: 0.2rem;
+    padding: 30px;
+    position: relative;
+  }
+  
+  .about-wrapper .after {
+    position: absolute;
+    top: 10%;
+    left: -60px;
+    background: #FAD02C;
+    box-shadow: 0 3px 80px rgba(173, 181, 189, 0.3), 0 0 10px rgba(173, 181, 189, 0.3) !important;
+    width: 200px;
+    height: 80%;
+    color: #fff;
+    border-radius: 0.2rem;
+  }
+  
+  .about-wrapper .after h1 {
+    -webkit-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+    position: absolute;
+    top: 43%;
+    left: -45px;
+    font-size: 35px;
+  }
+  
+  @media (max-width: 767.98px) {
+    .about-wrapper {
+      margin-left: 0;
+    }
+    .about-wrapper .after {
+      display: none;
+    }
+
+  }
+  .container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+  
+  @media (min-width: 576px) {
+    .container {
+      max-width: 540px;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 720px;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .container {
+      max-width: 960px;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .container {
+      max-width: 1140px;
+    }
+  }
+  
+  .container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  .about-wrapper {
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.col {
+    flex: 1;
+    min-width: 300px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+/* ======= Testimonial Section Styles ======= */
+#testmonial {
+    padding: 80px 0;
+    background-color: #f5f7fa;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Title h3 */
+#testmonial h3 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 60px;
+    color: #2c3e50;
+}
+
+/* Container */
+#testmonial .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Row */
+#testmonial .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Columns */
+#testmonial .col-sm-10, 
+#testmonial .col-md-4 {
+    background: #fff;
+    border-radius: 15px;
+    padding: 30px 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+/* Hover effect */
+#testmonial .col-sm-10:hover, 
+#testmonial .col-md-4:hover {
+    transform: translateY(-10px);
+}
+
+/* Testimonial Wrapper */
+.testmonial-wrapper img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    border: 4px solid #3498db;
+}
+
+/* Client Name */
+.testmonial-wrapper .title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #3498db;
+}
+
+/* Testimonial Text */
+.testmonial-wrapper p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-top: 15px;
+    padding: 0 10px;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #testmonial .row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #testmonial .col-sm-10, 
+    #testmonial .col-md-4 {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    #testmonial h3 {
+        font-size: 28px;
+    }
+
+    .testmonial-wrapper p {
+        font-size: 14px;
+    }
+}
